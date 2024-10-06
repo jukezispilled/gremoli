@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Window, WindowHeader, WindowContent, Button, Panel } from 'react95';
+import { Window, WindowHeader, WindowContent, Button } from 'react95';
 import { ThemeProvider } from 'styled-components';
 import original from 'react95/dist/themes/original';
 import { AnimatedList } from './animated-list';
 import { motion } from 'framer-motion';
 import { cn } from './lib/utils';
 
+// Notification data
 let notifications = [
   {
     name: "FBI",
@@ -31,6 +32,7 @@ let notifications = [
   },
 ];
 
+// Duplicate notifications for demonstration
 notifications = Array.from({ length: 1 }, () => notifications).flat();
 
 const Notification = ({ name, description, icon, color, time }) => {
@@ -38,11 +40,8 @@ const Notification = ({ name, description, icon, color, time }) => {
     <figure
       className={cn(
         "relative mx-auto min-h-fit w-full max-w-[400px] transform cursor-pointer overflow-hidden rounded-xl p-4",
-        // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
-        // light styles
         "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-        // dark styles
         "transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       )}
     >
@@ -93,7 +92,7 @@ function App() {
 
   return (
     <ThemeProvider theme={original}>
-      <div className="h-screen w-screen relative overflow-hidden">
+      <div className="h-[100dvh] w-screen relative overflow-hidden">
         {/* Background Video */}
         <video 
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -106,12 +105,27 @@ function App() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Floating u.gif */}
-        <img src="u.gif" alt="floating" className="random-float w-40 h-40" />
+        {/* Floating shrek.png */}
+        <motion.img
+          src="shrek.png"
+          alt="Shrek"
+          className="absolute w-[30%] bottom-0 right-[15%]" // Start at bottom
+          initial={{ y: "100vh" }} // Start off screen from the bottom
+          animate={{
+            y: ["100vh", "0", "50vh", "50vh", "100vh"], // Move up, pause, and return
+          }}
+          transition={{
+            duration: 8, // Total duration of one cycle (up, down, pause)
+            ease: "easeInOut",
+            times: [0, 0.25, 0.5, 0.5, 1], // Defines when to reach each value in `y`
+            repeat: Infinity, // Loop indefinitely
+            repeatDelay: 0, // No delay before repeating
+          }}
+        />
 
         {/* Content on top of video */}
-        <div className="relative flex flex-col items-center justify-center h-screen gap-4 z-10">
-          <Window className="w-80">
+        <div className="relative flex flex-col items-center justify-center h-[100dvh] gap-4 z-10">
+          <Window className="w-72 md:w-80">
             <WindowHeader className="flex justify-between items-center">
               <span>gremoli</span>
               <Button size="sm" square>
