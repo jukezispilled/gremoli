@@ -208,7 +208,7 @@ function App() {
           ) : (
             showPopup && (
               <div className="fixed top-[30%] right-[20%] z-50">
-                <Window className="w-[200px] md:w-96">
+                <Window className="w-[300px] md:w-96">
                   <WindowHeader className="flex justify-between items-center">
                     <span className='hidden md:block'>have you seen gremoli?</span>
                     <span className='md:hidden'>seen gremoli?</span>
