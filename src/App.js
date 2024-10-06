@@ -158,7 +158,7 @@ function App() {
                 </a>
               </div>
             </div>
-            <div className='text-[10px] text-center'>CA: XXXXXXXXX</div>
+            <div className='text-[10px] text-center'>CA: 2KJx9dqFkHYX73Pz8SmuwbB1Mq3y9SkPNqKEpjMBpump</div>
             <WindowContent>
               <div variant="well" className="mb-4">
                 <img
