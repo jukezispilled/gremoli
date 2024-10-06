@@ -148,7 +148,7 @@ function App() {
             </WindowHeader>
             <div className='flex justify-center'>
               <div className="flex items-center z-[50] py-1 space-x-2">
-                <a href="https://x.com/" className="transition ease-in-out duration-150 underline">
+                <a href="https://x.com/gremoliwtf" className="transition ease-in-out duration-150 underline">
                   Twitter
                 </a>
                 <a href="https://t.me/" className="transition ease-in-out duration-150 underline">
@@ -208,7 +208,8 @@ function App() {
               <div className="fixed top-[30%] right-[20%] z-50">
                 <Window className="w-[200px] md:w-96">
                   <WindowHeader className="flex justify-between items-center">
-                    <span>Have you seen gremoli?</span>
+                    <span className='hidden md:block'>have you seen gremoli?</span>
+                    <span className='md:hidden'>seen gremoli?</span>
                     <Button size="sm" square onClick={() => setShowPopup(false)}>
                       <span className="text-lg">×</span>
                     </Button>
