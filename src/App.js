@@ -72,6 +72,8 @@ const Notification = ({ name, description, icon, color, time }) => {
 function App() {
   const [isGlitching, setIsGlitching] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [showVid, setShowVid] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const redditUrl = "https://www.reddit.com/r/HelpMeFind/comments/1cglhms/help_me_find_the_origin_of_this_image_or_what/";
 
   useEffect(() => {
@@ -82,13 +84,28 @@ function App() {
 
     const popupTimeout = setTimeout(() => {
       setShowPopup(true);
-    }, 3500);
+    }, 4000); // Show the popup after 5 seconds
+
+    const popupTimeou = setTimeout(() => {
+      setShowVid(true);
+    }, 5000); // Show the popup after 5 seconds
 
     return () => {
       clearInterval(glitchInterval);
       clearTimeout(popupTimeout);
+      clearTimeout(popupTimeou);
     };
   }, []);
+
+  const handleYes = () => {
+    setShowVideo(true)
+  };
+
+  const handleNo = () => {
+    // Add your logic for "No" response
+    setShowPopup(false);
+    alert("We'll keep searching!");
+  };
 
   return (
     <ThemeProvider theme={original}>
@@ -128,9 +145,6 @@ function App() {
           <Window className="w-72 md:w-80">
             <WindowHeader className="flex justify-between items-center">
               <span>gremoli</span>
-              <Button size="sm" square>
-                <span className="text-lg">×</span>
-              </Button>
             </WindowHeader>
             <div className='flex justify-center'>
               <div className="flex items-center z-[50] py-1 space-x-2">
@@ -163,13 +177,61 @@ function App() {
           </a>
         </div>
 
+        <div>
+          {/* Conditional rendering based on showVideo state */}
+          {showVideo ? (
+            <div className="fixed top-[30%] right-[20%] z-50">
+              <Window className="w-[200px] md:w-96">
+                <WindowHeader className="flex justify-between items-center">
+                    <span>OPEN-UP.mp4</span>
+                    <Button
+                      size="sm"
+                      square
+                      onClick={() => {
+                        setShowVideo(false);
+                        setShowPopup(false); // Also close the popup when video is closed
+                      }}
+                    >
+                      <span className="text-lg">×</span>
+                    </Button>
+                </WindowHeader>
+                <WindowContent>
+                  <video className="w-full h-full" controls autoPlay>
+                    <source src="f.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </WindowContent>
+              </Window>
+            </div>
+          ) : (
+            showPopup && (
+              <div className="fixed top-[30%] right-[20%] z-50">
+                <Window className="w-[200px] md:w-96">
+                  <WindowHeader className="flex justify-between items-center">
+                    <span>Have you seen gremoli?</span>
+                    <Button size="sm" square onClick={() => setShowPopup(false)}>
+                      <span className="text-lg">×</span>
+                    </Button>
+                  </WindowHeader>
+                  <WindowContent className="flex flex-col items-center">
+                    <div className="flex space-x-4">
+                      <Button onClick={handleYes}>Yes</Button>
+                      <Button onClick={handleNo}>No</Button>
+                    </div>
+                  </WindowContent>
+                </Window>
+              </div>
+            )
+          )}
+        </div>
+
         {/* Popup Video Player */}
-        {showPopup && (
+        {showVid && (
           <div className="fixed top-[15%] left-[15%] z-50">
             <Window className="w-[275px] md:w-96">
               <WindowHeader className="flex justify-between items-center">
                 <span>gremoli.mp4</span>
-                <Button size="sm" square onClick={() => setShowPopup(false)}>
+                <Button size="sm" square onClick={() => setShowVid(false)}>
                   <span className="text-lg">×</span>
                 </Button>
               </WindowHeader>
