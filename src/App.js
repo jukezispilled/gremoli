@@ -196,7 +196,7 @@ function App() {
                     </Button>
                 </WindowHeader>
                 <WindowContent>
-                  <video className="w-full h-full" controls autoPlay>
+                  <video className="w-full h-full" controls autoPlay playsInline>
                     <source src="f.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -242,6 +242,7 @@ function App() {
                     className="w-full h-full"
                     autoPlay
                     controls
+                    playsInline
                   >
                     <source src="b.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
