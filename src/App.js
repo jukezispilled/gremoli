@@ -122,6 +122,8 @@ function App() {
           Your browser does not support the video tag.
         </video>
 
+        <img src="u.gif" className='size-20 random-float'></img>
+
         {/* Floating shrek.png */}
         <motion.img
           src="shrek.png"
