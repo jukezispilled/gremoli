@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+@keyframes randomMovement {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(50vw, 20vh);
+  }
+  40% {
+    transform: translate(-30vw, 50vh);
+  }
+  60% {
+    transform: translate(30vw, -40vh);
+  }
+  80% {
+    transform: translate(-50vw, -20vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.random-float {
+  position: absolute;
+  width: 100px; /* Adjust size as needed */
+  height: 100px;
+  animation: randomMovement 15s ease-in-out infinite; /* Adjust duration for speed */
+  z-index: 10;
+}
+
+/* App.css */
+.pulse-container {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  display: flex;
+  align-items: center; /* Center the text and circle vertically */
+  font-size: 16px; /* Font size for the text */
+  color: white; /* Text color */
+}
+
+.pulse-circle {
+  width: 15px; /* Circle size */
+  height: 15px; /* Circle size */
+  background-color: #28a745; /* Green color */
+  border-radius: 50%; /* Make it a circle */
+  margin-left: 10px; /* Space between text and circle */
+  animation: pulse 1.5s infinite; /* Animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
