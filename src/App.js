@@ -148,16 +148,6 @@ function App() {
             <WindowHeader className="flex justify-between items-center">
               <span>gremoli</span>
             </WindowHeader>
-            <div className='flex justify-center'>
-              <div className="flex items-center z-[50] py-1 space-x-2">
-                <a href="https://x.com/gremoliwtf" className="transition ease-in-out duration-150 underline">
-                  Twitter
-                </a>
-                <a href="https://t.me/gremoliwtf" className="transition ease-in-out duration-150 underline">
-                  TG
-                </a>
-              </div>
-            </div>
             <div className='text-[9px] text-center'>2KJx9dqFkHYX73Pz8SmuwbB1Mq3y9SkPNqKEpjMBpump</div>
             <WindowContent>
               <div variant="well" className="mb-4">
