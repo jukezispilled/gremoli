@@ -148,7 +148,7 @@ function App() {
             <WindowHeader className="flex justify-between items-center">
               <span>gremoli</span>
             </WindowHeader>
-            <div className='text-[9px] text-center'>2KJx9dqFkHYX73Pz8SmuwbB1Mq3y9SkPNqKEpjMBpump</div>
+            <div className='text-[9px] text-center mt-2'>2KJx9dqFkHYX73Pz8SmuwbB1Mq3y9SkPNqKEpjMBpump</div>
             <WindowContent>
               <div variant="well" className="mb-4">
                 <img
